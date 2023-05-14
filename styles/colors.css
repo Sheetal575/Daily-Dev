@@ -1,0 +1,11 @@
+:root {
+  --colors-primary-text: #fff;
+  --colors-primary-background: #21273D;
+  --colors-primary-border: #FEF5AC;
+
+  --colors-secondary-text: #cfd6e6;
+  --colors-secondary-background: #5F6F94;
+  --colors-secondary-border: #97D2EC;
+
+  --colors-background: red;
+}

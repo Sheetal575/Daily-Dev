@@ -1,0 +1,22 @@
+.modal-overlay {
+  z-index: 8;
+  background-color: rgba(0, 0, 0, 0.747);
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur;
+  position: fixed;
+  top: 0;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  height: max-content;
+  background-color: #21273d;
+  border: 1px solid #97d2ec36;
+  border-radius: 8px;
+  z-index: 9;
+}

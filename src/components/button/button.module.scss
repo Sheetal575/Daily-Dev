@@ -1,0 +1,39 @@
+.button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3em 0.6em;
+  border-radius: 0.4em;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.primary {
+  background-color: #ffffff;
+  &:hover {
+    background: #97d2ec radial-gradient(circle, transparent 1%, #97d2ec 1%)
+      center/15000%;
+  }
+  &:active {
+    background-color: #fff;
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
+
+.secondary {
+  border: 1px solid #97d2ec36;
+  background-color: transparent;
+  padding: 5px;
+
+  &:hover {
+    background-color: #97d2ec36;
+  }
+}
+
+.button {
+  background-position: center;
+  transition: background 1s;
+}

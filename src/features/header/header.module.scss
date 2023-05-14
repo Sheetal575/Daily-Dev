@@ -1,0 +1,30 @@
+.header {
+  grid-area: header;
+  background-color: #21273d;
+  border-bottom: 1px solid #97d2ec36;
+  color: #fff;
+  display: flex;
+  height: 50px;
+  padding: 12px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 3s ease-in;
+
+  &-button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: all 3s ease-in;
+  }
+}
