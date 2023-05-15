@@ -4,12 +4,13 @@ import ChevronDoubleLeft from "../../icons/chevron-double-left";
 import styles from "./sidebar.module.scss";
 import { NavigationService } from "../../services/navigation";
 import { NewSourceModal } from "../new-source-modal/new-source-modal";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "../../components/button/button";
 import { ChooseTagModal } from "../choose-tag-modal/choose-tag-modal";
 
-const MenuItems = ({ handleShowModal }) => {
+const MenuItems = ({ handleShowModal, showModal }) => {
   const router = useRouter();
+  const pathname = usePathname();
   const handleMenuItems = (url) => {
     if (!url) {
       handleShowModal({ newSource: true, choosetags: false });
@@ -23,12 +24,19 @@ const MenuItems = ({ handleShowModal }) => {
   };
   return (
     <div className={styles.sidebar__content}>
-      <button className={styles["choose-tags"]} onClick={handleChooseTags}>
+      <button
+        className={`${styles["choose-tags"]} ${
+          showModal.choosetags ? styles["choose-tags-active"] : ""
+        }`}
+        onClick={handleChooseTags}
+      >
         Choose tags
       </button>
       {NavigationService.map((menu) => (
         <button
-          className={`${styles["menu-item"]}`}
+          className={`${styles["menu-item"]} ${
+            pathname === menu?.url ? styles["menu-item-active"] : ""
+          }`}
           onClick={() => handleMenuItems(menu.url)}
         >
           {menu.title}
@@ -79,7 +87,7 @@ const Sidebar = () => {
           isCollapsed ? styles["sidebar-collapsed"] : ""
         }`}
       >
-        <MenuItems handleShowModal={handleShowModal} />
+        <MenuItems handleShowModal={handleShowModal} showModal={showModal} />
         <SidebarFooter
           isCollapsed={isCollapsed}
           handleSideBarCollapsed={handleSideBarCollapsed}

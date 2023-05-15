@@ -7,7 +7,7 @@ import "intro.js/introjs.css";
 import { useRef, useEffect, useContext } from "react";
 import { loadFromLocalStorage } from "../../services/blogs";
 import BlogDataContext from "../../services/blogContext";
-const Blogs = () => {
+const Blogs = (props) => {
   const firstCardRef = useRef(null);
   const { blogData } = useContext(BlogDataContext);
   // useEffect(() => {
@@ -27,12 +27,15 @@ const Blogs = () => {
   //   intro.start();
   // }, []);
 
-  console.log(blogData);
+  const { searchQuery } = props;
+  const filteredBlogs = blogData.filter((blog) =>
+    blog.tag.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    // <BlogsCard />
     <div className={styles["blogs-container"]}>
-      {blogData &&
-        blogData.map((el, index) => (
+      {filteredBlogs &&
+        filteredBlogs.map((el, index) => (
           <div ref={null}>
             <BlogsCard blogdata={el} />
           </div>

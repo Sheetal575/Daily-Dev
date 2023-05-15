@@ -1,15 +1,8 @@
+import styles from "./page.module.scss";
 const Page = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-        alignItems: "center",
-      }}
-    >
-      In progress....
+    <div className={styles.typewriter}>
+      <h2>Hold tight, we're working on it.</h2>
     </div>
   );
 };

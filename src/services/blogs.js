@@ -6,6 +6,7 @@ export const BlogService = [
     url: "https://medium.com/@tony.infisical/the-death-of-the-env-file-6d65bfc6ac5e",
     readTime: "12",
     isPopular: true,
+    tag: "env file",
   },
   {
     title: "50+ ChatGPT Prompts for Web Developers",
@@ -14,6 +15,7 @@ export const BlogService = [
     url: "https://www.builder.io/blog/ai-prompts-for-web-developers-chatgpt",
     readTime: "6",
     isPopular: true,
+    tag: "chatgpt",
   },
   {
     title: "OpenAI CEO Sam Altman Believes the Era of Remote Work is Over",
@@ -21,6 +23,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/1f63b57c66ef7fe7ad24eb60b07f51d9?_a=AQADKdt",
     url: "https://80.lv/articles/openai-ceo-sam-altman-believes-the-era-of-remote-work-is-over/",
     readTime: "8",
+    tag: "ai",
   },
   {
     title: "Single Rust Binary with Vite+Svelte",
@@ -29,6 +32,7 @@ export const BlogService = [
     url: "https://fdeantoni.medium.com/single-rust-binary-with-vite-svelte-66944f9ac561",
     readTime: "10",
     isPopular: true,
+    tag: "rust",
   },
   {
     title: "GO WITH PHP",
@@ -37,6 +41,7 @@ export const BlogService = [
     url: "https://gowithphp.com/",
     readTime: "15",
     isPopular: true,
+    tag: "php",
   },
   {
     title: "Tamagui 1.0",
@@ -44,6 +49,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/d34f119908d344fc446723d8af57dd3c",
     url: "https://tamagui.dev/blog/version-one",
     readTime: "8",
+    tag: "tamagui",
   },
   {
     title: "How to structure scalable Next.js project architecture",
@@ -52,6 +58,7 @@ export const BlogService = [
     url: "https://blog.logrocket.com/structure-scalable-next-js-project-architecture/",
     readTime: "13",
     isPopular: true,
+    tag: "nextjs",
   },
   {
     title:
@@ -61,6 +68,7 @@ export const BlogService = [
     url: "https://github.com/CorentinTh/it-tools",
     readTime: "5",
     isPopular: true,
+    tag: "ui",
   },
   {
     title: "React Server Components",
@@ -69,6 +77,7 @@ export const BlogService = [
     url: "https://changelog.daily.dev/feed-algorithm-v3-0-more-personalized-than-ever-264267",
     readTime: "18",
     isPopular: true,
+    tag: "react",
   },
   {
     title: "Feed Algorithm v3.0 - More personalized than ever",
@@ -76,6 +85,7 @@ export const BlogService = [
       "https://cloud.headwayapp.co/changelogs_images/images/big/000/107/845-c30a847fae33fb7e3943ba7e87b377fdccc711c3.png",
     url: "https://medium.com/@tony.infisical/the-death-of-the-env-file-6d65bfc6ac5e",
     readTime: "10",
+    tag: "dsa",
   },
   {
     title: "Stop Doing this on ChatGPT and Get Ahead of the 99% of its Users",
@@ -83,6 +93,7 @@ export const BlogService = [
     imgUrl:
       "https://www.kdnuggets.com/wp-content/uploads/stop-chatgpt-get-ahead-99-users_01.png",
     readTime: "6",
+    tag: "chatgpt",
   },
   {
     title: "Mastering the Art of API Design",
@@ -90,6 +101,7 @@ export const BlogService = [
     imgUrl:
       "https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa5e7db07-a20d-4958-b8be-40748addc5e7_1600x936.png",
     readTime: "7",
+    tag: "api",
   },
   {
     title: "Must Know JavaScript API — Page Visibility API",
@@ -97,6 +109,8 @@ export const BlogService = [
     imgUrl:
       "https://miro.medium.com/v2/resize:fit:828/format:webp/1*CaqnGBOA9sKXyOI6qL46Mw.png",
     readTime: "8",
+    isPopular: true,
+    tag: "api",
   },
   {
     title: "Full Stack Engineer – Career Guide",
@@ -104,6 +118,8 @@ export const BlogService = [
     imgUrl:
       "https://www.freecodecamp.org/news/content/images/size/w2000/2023/05/nubelson-fernandes-UcYBL5V0xWQ-unsplash.jpg",
     readTime: "5",
+    isPopular: true,
+    tag: "developer",
   },
   {
     title: "Google launches a GitHub Copilot competitor",
@@ -111,6 +127,7 @@ export const BlogService = [
     imgUrl:
       "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1234053501-e1678459251952.jpg?w=1390&crop=1",
     readTime: "13",
+    tag: "chatgpt",
   },
 
   {
@@ -119,6 +136,8 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/28c1b1ff1cec4ca8ccc7ad8a3c22993c",
     readTime: "13",
+    isPopular: true,
+    tag: "opensource",
   },
   {
     title: "refine.new - Introducing the Fastest Way to Create React Apps",
@@ -126,6 +145,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/09a0c69f66ac98c8431265c518f0f281",
     readTime: "12",
+    tag: "react",
   },
   {
     title: "VS Code Extensions to Take Your Coding to the Next Level",
@@ -133,6 +153,8 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/423ad02033ca349640589a186d1c88c8",
     readTime: "4",
+    isPopular: true,
+    tag: "vscode",
   },
   {
     title: "8 React Projects to Build in 2023",
@@ -140,6 +162,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/7bc157eb8f76b806a7d074f5a0786229",
     readTime: "10",
+    tag: "react",
   },
   {
     title: "The Future of Web 3.0 Development: Thirdweb SDK",
@@ -147,6 +170,8 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/4f51db880cd4d2d2391ede9e7f6f69ce?_a=AQADKdt",
     readTime: "6",
+    isPopular: true,
+    tag: "web",
   },
   {
     title: "The World of AI with OpenAI Models: GPT-3, GPT-4, DALL-E and CLIP",
@@ -154,6 +179,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/63ea3de79874a79a7456ee0dbfc6ce39",
     readTime: "15",
+    tag: "ai",
   },
   {
     title: "New Google Bard or ChatGPT: Ultimate Comparison",
@@ -161,6 +187,8 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/d71da5b362ad2f4aae9b5373d25092b8?_a=AQADKdt",
     readTime: "23",
+    isPopular: true,
+    tag: "chatgpt",
   },
   {
     title:
@@ -169,6 +197,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/15cfff6d8a98f09d13c8fc9a79b2354f?_a=AQADKdt",
     readTime: "14",
+    tag: "gpt",
   },
   {
     title: "How I used GitHub Copilot to build a browser extension",
@@ -176,6 +205,7 @@ export const BlogService = [
     imgUrl:
       "https://github.blog/wp-content/uploads/2023/05/copilot-header-resized.gif",
     readTime: "16",
+    tag: "github",
   },
   {
     title: "10 Advanced Git Commands",
@@ -183,6 +213,8 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/d14089fcf09784fc737e695c785c6b89?_a=AQADKdt",
     readTime: "20",
+    isPopular: true,
+    tag: "github",
   },
   {
     title: "DevGPT - The Essential AI assistant for Developers",
@@ -190,13 +222,15 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/fd410834f442591aa4dcd968a58deee0?_a=AQADKdt",
     readTime: "5",
+    isPopular: true,
+    tag: "gpt",
   },
   {
     title: "What Is Dev Rel And Why Are All The Cool Kids Doing It?",
     url: "https://haunanipao.medium.com/what-is-dev-rel-and-why-are-all-the-cool-kids-doing-it-92c2cfa3ea02",
-    imgUrl:
-      "https://haunanipao.medium.com/what-is-dev-rel-and-why-are-all-the-cool-kids-doing-it-92c2cfa3ea02",
+    imgUrl: "",
     readTime: "13",
+    tag: "dev",
   },
 
   {
@@ -205,6 +239,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/1db91146d34231be2a4c41fd75e322ad",
     readTime: "10",
+    tag: "database",
   },
 
   {
@@ -213,6 +248,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/43d61e4e7aef3ce0cfad209292991a4c?_a=AQADKdt",
     readTime: "16",
+    tag: "leaning",
   },
 
   {
@@ -221,5 +257,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/ea89f0edce74f5723a77c363adcc0cee",
     readTime: "13",
+
+    tag: "developer",
   },
 ];

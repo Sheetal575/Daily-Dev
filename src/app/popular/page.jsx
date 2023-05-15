@@ -1,17 +1,7 @@
+import Popular from "../../features/popular/popular";
+
 const Page = () => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-        alignItems: "center",
-      }}
-    >
-      In progress....
-    </div>
-  );
+  return <Popular />;
 };
 
 export default Page;
