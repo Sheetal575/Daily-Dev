@@ -1,13 +1,21 @@
 "use client";
 
-import Blogs from "../blogs/blogs-container";
-import { useState } from "react";
+import BlogDataContext from "../../services/blogContext";
+import { useState, useContext } from "react";
+import BlogsCard from "../blogs/blogs-cards";
+import styles from "../blogs/blogs.module.scss";
+
 export const Search = () => {
+  const { blogData } = useContext(BlogDataContext);
   const [searchQuery, setSearchQuery] = useState("");
 
   function handleSearch(event) {
     setSearchQuery(event.target.value);
   }
+
+  const filteredBlogs = blogData.filter((blog) =>
+    blog.tag.toLowerCase().includes(searchQuery?.toLowerCase())
+  );
   return (
     <>
       <div
@@ -24,7 +32,14 @@ export const Search = () => {
           />
         </div>
       </div>
-      <Blogs searchQuery={searchQuery} />
+      <div className={styles["blogs-container"]}>
+        {filteredBlogs &&
+          filteredBlogs.map((el, index) => (
+            <div ref={null}>
+              <BlogsCard blogdata={el} />
+            </div>
+          ))}
+      </div>
     </>
   );
 };
