@@ -87,7 +87,9 @@ const Sidebar = () => {
           isCollapsed ? styles["sidebar-collapsed"] : ""
         }`}
       >
-        <MenuItems handleShowModal={handleShowModal} showModal={showModal} />
+        {!isCollapsed && (
+          <MenuItems handleShowModal={handleShowModal} showModal={showModal} />
+        )}
         <SidebarFooter
           isCollapsed={isCollapsed}
           handleSideBarCollapsed={handleSideBarCollapsed}
