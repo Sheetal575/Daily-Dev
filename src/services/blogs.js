@@ -5,6 +5,7 @@ export const BlogService = [
       "https://miro.medium.com/v2/resize:fit:640/format:webp/1*IuSsXgVZLWGHfKTxrDzSig.png",
     url: "https://medium.com/@tony.infisical/the-death-of-the-env-file-6d65bfc6ac5e",
     readTime: "12",
+    isPopular: true,
   },
   {
     title: "50+ ChatGPT Prompts for Web Developers",
@@ -12,6 +13,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e1e7781f1dc47a5094bc2f95a457bb51?_a=AQADKdt",
     url: "https://www.builder.io/blog/ai-prompts-for-web-developers-chatgpt",
     readTime: "6",
+    isPopular: true,
   },
   {
     title: "OpenAI CEO Sam Altman Believes the Era of Remote Work is Over",
@@ -26,6 +28,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e39f657c00a7e6ed3f457ebcd0e13899?_a=AQADKdt",
     url: "https://fdeantoni.medium.com/single-rust-binary-with-vite-svelte-66944f9ac561",
     readTime: "10",
+    isPopular: true,
   },
   {
     title: "GO WITH PHP",
@@ -33,6 +36,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/eac54a0f284bf8baa92e66c2385a40c0",
     url: "https://gowithphp.com/",
     readTime: "15",
+    isPopular: true,
   },
   {
     title: "Tamagui 1.0",
@@ -47,6 +51,7 @@ export const BlogService = [
       "https://blog.logrocket.com/wp-content/uploads/2023/04/Building-scalable-Next-js-architecture.png",
     url: "https://blog.logrocket.com/structure-scalable-next-js-project-architecture/",
     readTime: "13",
+    isPopular: true,
   },
   {
     title:
@@ -55,6 +60,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/577de9ab46630653b9b3dd5648c83e67",
     url: "https://github.com/CorentinTh/it-tools",
     readTime: "5",
+    isPopular: true,
   },
   {
     title: "React Server Components",
@@ -62,6 +68,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/37f931d80236ac7ca7abb7ff30b534ea",
     url: "https://changelog.daily.dev/feed-algorithm-v3-0-more-personalized-than-ever-264267",
     readTime: "18",
+    isPopular: true,
   },
   {
     title: "Feed Algorithm v3.0 - More personalized than ever",
@@ -105,11 +112,6 @@ export const BlogService = [
       "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1234053501-e1678459251952.jpg?w=1390&crop=1",
     readTime: "13",
   },
-
-
-
-
-
 
   {
     title: "8 best opensource projects you should try out",
@@ -161,7 +163,8 @@ export const BlogService = [
     readTime: "23",
   },
   {
-    title: "Slack Launches SlackGPT: Bringing the Power of Generative AI in Slack",
+    title:
+      "Slack Launches SlackGPT: Bringing the Power of Generative AI in Slack",
     url: "https://www.marktechpost.com/2023/05/12/slack-launches-slackgpt-bringing-the-power-of-generative-ai-in-slack/",
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/15cfff6d8a98f09d13c8fc9a79b2354f?_a=AQADKdt",
@@ -195,7 +198,6 @@ export const BlogService = [
       "https://haunanipao.medium.com/what-is-dev-rel-and-why-are-all-the-cool-kids-doing-it-92c2cfa3ea02",
     readTime: "13",
   },
-
 
   {
     title: "Database 101: How social media “likes” are stored in a database",
