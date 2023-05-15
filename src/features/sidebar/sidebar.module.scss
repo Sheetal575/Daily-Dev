@@ -82,3 +82,28 @@
     background-color: #97d2ec1d;
   }
 }
+
+.choose-tags {
+  border: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: 0.1em solid #97d2ec;
+  box-shadow: 0 0 10px #9ecaed;
+  transition: all 0.2s ease-out;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background: #97d2ec3c radial-gradient(circle, transparent 1%, #97d2ec39 1%)
+    center/15000%;
+  color: #97d2ec;
+
+  &:hover {
+    box-shadow: none;
+    transition: all 0.5s ease-out;
+    background-color: #97d2ec;
+    color: #21273d;
+  }
+}

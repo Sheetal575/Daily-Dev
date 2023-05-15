@@ -8,11 +8,16 @@ export const NavigationService = [
   {
     id: 1,
     title: "Popular",
-    url: "/poopular",
+    url: "/popular",
   },
   {
     id: 2,
     title: "Search",
     url: "/search",
+  },
+  {
+    id: 3,
+    title: "Bookmark",
+    url: "/bookmark",
   },
 ];

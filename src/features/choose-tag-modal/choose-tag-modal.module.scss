@@ -1,0 +1,71 @@
+.choosetag-modal {
+  width: 475px;
+  &__heading {
+    padding: 24px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+
+    > span {
+      color: #97d2ec;
+      margin-left: 7px;
+    }
+  }
+
+  &__subheading {
+    padding: 6px 18px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffffc8;
+  }
+
+  &__content {
+    padding: 30px 60px;
+    color: #ffffff91;
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(auto-fit, 80px);
+    gap: 10px;
+  }
+
+  &__footer {
+    margin-top: 5px;
+    border-top: 1px solid #97d2ec36;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.tags {
+  padding: 1.6em 1.2em;
+  border-radius: 1em;
+  background-color: #97d2ec1d;
+  color: #ffffff91;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 80px;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background-color: #ffffff91;
+    color: #21273d;
+    transition: all 0.2s ease-in;
+    font-weight: 600;
+  }
+
+  &-active {
+    background: linear-gradient(to right, #9ecaed, #21273d);
+    transition: all 0.2s ease-in;
+    box-shadow: 0 0 10px #9ecaed;
+  }
+}

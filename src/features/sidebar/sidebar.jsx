@@ -5,18 +5,27 @@ import styles from "./sidebar.module.scss";
 import { NavigationService } from "../../services/navigation";
 import { NewSourceModal } from "../new-source-modal/new-source-modal";
 import { useRouter } from "next/navigation";
+import Button from "../../components/button/button";
+import { ChooseTagModal } from "../choose-tag-modal/choose-tag-modal";
 
 const MenuItems = ({ handleShowModal }) => {
   const router = useRouter();
   const handleMenuItems = (url) => {
     if (!url) {
-      handleShowModal();
+      handleShowModal({ newSource: true, choosetags: false });
     } else {
-      router.push("/search");
+      router.push(url);
     }
+  };
+
+  const handleChooseTags = () => {
+    handleShowModal({ newSource: false, choosetags: true });
   };
   return (
     <div className={styles.sidebar__content}>
+      <button className={styles["choose-tags"]} onClick={handleChooseTags}>
+        Choose tags
+      </button>
       {NavigationService.map((menu) => (
         <button
           className={`${styles["menu-item"]}`}
@@ -51,14 +60,17 @@ const SidebarFooter = ({ handleSideBarCollapsed, isCollapsed }) => (
 );
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState({
+    newSource: false,
+    choosetags: false,
+  });
 
   const handleSideBarCollapsed = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const handleShowModal = () => {
-    setShowModal(!showModal);
+  const handleShowModal = (obj) => {
+    setShowModal(obj);
   };
   return (
     <>
@@ -74,7 +86,11 @@ const Sidebar = () => {
         />
       </div>
       <NewSourceModal
-        isOpen={showModal}
+        isOpen={showModal.newSource}
+        onClose={() => setShowModal(!showModal)}
+      />
+      <ChooseTagModal
+        isOpen={showModal.choosetags}
         onClose={() => setShowModal(!showModal)}
       />
     </>

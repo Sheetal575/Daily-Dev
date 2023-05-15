@@ -18,8 +18,6 @@ export const NewSourceModal = ({ isOpen, onClose }) => {
     });
   };
 
-  console.log(showMessage);
-
   const onpost = () => {
     if (!newSource.imgUrl && !newSource.title) {
       return setShowMessage({ error: true, success: false });
