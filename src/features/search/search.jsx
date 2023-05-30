@@ -14,7 +14,9 @@ export const Search = () => {
   }
 
   const filteredBlogs = blogData.filter((blog) =>
-    blog.tag.toLowerCase().includes(searchQuery?.toLowerCase())
+    blog.tag.some((tag) =>
+      tag.toLowerCase().includes(searchQuery.toLowerCase())
+    )
   );
   return (
     <>
