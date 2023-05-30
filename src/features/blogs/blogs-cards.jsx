@@ -2,17 +2,26 @@ import ReadTime from "../../icons/read-time";
 import styles from "./blogs.module.scss";
 import Button from "../../components/button/button";
 import ExternalLink from "../../icons/external-link";
+import { useState } from "react";
+import BlogDetails from "../blog-details/blog-details";
 
 const BlogsCard = (props) => {
   const { blogdata } = props;
   const { title, imgUrl, url, readTime } = blogdata;
+  const [selectedBlog, setSelectedBlog] = useState([]);
+  const [isOpenDetailModal, setIsOpenDetailModal] = useState(false);
 
   const readblog = (goToUrl) => {
     window.open(goToUrl);
   };
+
+  const handleSelectedBlog = () => {
+    setSelectedBlog(blogdata);
+    setIsOpenDetailModal(!isOpenDetailModal);
+  };
   return (
     <>
-      <div className={styles["blog-card"]}>
+      <div className={styles["blog-card"]} onClick={handleSelectedBlog}>
         <div className={styles["blog-card__heading"]}>{title}</div>
         <img
           height={100}
@@ -32,6 +41,11 @@ const BlogsCard = (props) => {
           </Button>
         </div>
       </div>
+      <BlogDetails
+        details={selectedBlog}
+        isOpen={isOpenDetailModal}
+        onClose={() => setIsOpenDetailModal(!isOpenDetailModal)}
+      />
     </>
   );
 };

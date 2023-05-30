@@ -7,7 +7,7 @@
   border-radius: 0.4em;
   cursor: pointer;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .primary {
@@ -24,9 +24,13 @@
 }
 
 .secondary {
-  border: 1px solid #97d2ec36;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
   background-color: transparent;
-  padding: 5px;
 
   &:hover {
     background-color: #97d2ec36;
@@ -39,6 +43,12 @@
   background-color: transparent;
   color: #ffffffc8;
   font-weight: 400;
+
+  transform: scale(1.1);
+
+  &:active {
+    transform: scale(1);
+  }
 }
 
 .button {

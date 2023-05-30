@@ -7,15 +7,50 @@ import { NewSourceModal } from "../new-source-modal/new-source-modal";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../../components/button/button";
 import { ChooseTagModal } from "../choose-tag-modal/choose-tag-modal";
+import { InvitePeople } from "../invite-people/invite-people";
 
 const MenuItems = ({ handleShowModal, showModal }) => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const getModalName = (url) => {
+    switch (url) {
+      case "suggest-new-source":
+        handleShowModal({
+          newSource: true,
+          choosetags: false,
+          invitepeople: false,
+        });
+      case "invite-people":
+        handleShowModal({
+          newSource: false,
+          choosetags: false,
+          invitepeople: true,
+        });
+      default:
+        return 0;
+    }
+  };
   const handleMenuItems = (url) => {
-    if (!url) {
-      handleShowModal({ newSource: true, choosetags: false });
+    console.log(url);
+    if (url === "suggest-new-source") {
+      handleShowModal({
+        newSource: true,
+        choosetags: false,
+        invitepeople: false,
+      });
+    } else if (url === "invite-people") {
+      handleShowModal({
+        newSource: false,
+        choosetags: false,
+        invitepeople: true,
+      });
     } else {
-      router.push(url);
+      if (url === "/feedback") {
+        window.open(url, "_blank");
+      } else {
+        router.push(url);
+      }
     }
   };
 
@@ -39,7 +74,8 @@ const MenuItems = ({ handleShowModal, showModal }) => {
           }`}
           onClick={() => handleMenuItems(menu.url)}
         >
-          {menu.title}
+          {menu?.icon}
+          <span>{menu?.title}</span>
         </button>
       ))}
     </div>
@@ -71,6 +107,7 @@ const Sidebar = () => {
   const [showModal, setShowModal] = useState({
     newSource: false,
     choosetags: false,
+    invitepeople: false,
   });
 
   const handleSideBarCollapsed = () => {
@@ -101,6 +138,10 @@ const Sidebar = () => {
       />
       <ChooseTagModal
         isOpen={showModal.choosetags}
+        onClose={() => setShowModal(!showModal)}
+      />
+      <InvitePeople
+        isOpen={showModal.invitepeople}
         onClose={() => setShowModal(!showModal)}
       />
     </>

@@ -12,22 +12,22 @@ const Blogs = () => {
   const firstCardRef = useRef(null);
   const { blogData } = useContext(BlogDataContext);
 
-  useLayoutEffect(() => {
-    const intro = introJs();
+  // useLayoutEffect(() => {
+  //   const intro = introJs();
 
-    intro.setOptions({
-      steps: [
-        {
-          element: firstCardRef.current,
-          intro:
-            "This is the latest techincal blog , hover on it, you will find a button to go to the link of blog. read it , enjoy it.",
-          position: "right",
-        },
-      ],
-    });
+  //   intro.setOptions({
+  //     steps: [
+  //       {
+  //         element: firstCardRef.current,
+  //         intro:
+  //           "This is the latest techincal blog , hover on it, you will find a button to go to the link of blog. read it , enjoy it.",
+  //         position: "right",
+  //       },
+  //     ],
+  //   });
 
-    intro.start();
-  }, []);
+  //   intro.start();
+  // }, []);
 
   return (
     <div className={styles["blogs-container"]}>
@@ -38,6 +38,8 @@ const Blogs = () => {
           </div>
         ))}
     </div>
+
+    
   );
 };
 

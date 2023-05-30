@@ -47,14 +47,6 @@ export const NewSourceModal = ({ isOpen, onClose }) => {
       <div className={styles["source-modal"]}>
         <div className={styles["source-modal__heading"]}>
           Suggest New Source
-          <Button onClick={handleClose} variant="secondary">
-            <Close
-              className={styles.icon}
-              size={20}
-              color="#fff"
-              strokeWidth={1.2}
-            />
-          </Button>
         </div>
         <div className={styles["source-modal__content"]}>
           {(showMessage.error || showMessage.success) && (

@@ -1,0 +1,40 @@
+.comment-screen {
+  transition: all 4s ease-in;
+  position: relative;
+  height: 100%;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #97d2ec36;
+    position: sticky;
+    width: 100%;
+  }
+
+  &__content {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    position: absolute;
+    top: 40px;
+    bottom: 0px;
+
+    gap: 1rem;
+  }
+
+  &__comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    > div:nth-child(1) {
+      font-size: 12px;
+      color: #ffffff91;
+    }
+    > div:nth-child(2) {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
