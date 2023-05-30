@@ -9,7 +9,7 @@ export const BlogService = [
     readTime: "12",
     upVote: 0,
     bookMark: false,
-    tags: ["env file"],
+    tag: ["env file"],
     comments: [
       {
         name: "Sushant",
@@ -28,7 +28,7 @@ export const BlogService = [
     isPopular: true,
     upVote: 0,
     bookMark: false,
-    tags: ["chatgpt", "Ai", "opensource"],
+    tag: ["chatgpt", "Ai", "opensource"],
     comments: [],
   },
   {
@@ -43,7 +43,7 @@ export const BlogService = [
     isPopular: true,
     upVote: 0,
     bookMark: false,
-    tags: ["ai", "openai"],
+    tag: ["ai", "openai"],
     comments: [],
   },
   {
@@ -55,7 +55,7 @@ export const BlogService = [
     url: "https://fdeantoni.medium.com/single-rust-binary-with-vite-svelte-66944f9ac561",
     readTime: "10",
     isPopular: true,
-    tags: ["rust", "compiler design", "vite", "svelte"],
+    tag: ["rust", "compiler design", "vite", "svelte"],
     readTime: "10",
     upVote: 0,
     bookMark: false,
@@ -68,7 +68,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/eac54a0f284bf8baa92e66c2385a40c0",
     url: "https://gowithphp.com/",
-    tags: ["php", "gp"],
+    tag: ["php", "gp"],
     readTime: "8",
     upVote: 0,
     bookMark: false,
@@ -90,7 +90,7 @@ export const BlogService = [
       "https://blog.logrocket.com/wp-content/uploads/2023/04/Building-scalable-Next-js-architecture.png",
     url: "https://blog.logrocket.com/structure-scalable-next-js-project-architecture/",
     readTime: "13",
-    tags: ["nextjs", "web", "reactjs"],
+    tag: ["nextjs", "web", "reactjs"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -120,7 +120,7 @@ export const BlogService = [
       "https://cloud.headwayapp.co/changelogs_images/images/big/000/107/845-c30a847fae33fb7e3943ba7e87b377fdccc711c3.png",
     url: "https://medium.com/@tony.infisical/the-death-of-the-env-file-6d65bfc6ac5e",
     readTime: "10",
-    tags: ["dsa", "alogorithm"],
+    tag: ["dsa", "alogorithm"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -148,7 +148,7 @@ export const BlogService = [
     imgUrl:
       "https://miro.medium.com/v2/resize:fit:828/format:webp/1*CaqnGBOA9sKXyOI6qL46Mw.png",
     readTime: "8",
-    tags: ["api", "javascript"],
+    tag: ["api", "javascript"],
   },
   {
     title: "Full Stack Engineer – Career Guide",
@@ -167,7 +167,7 @@ export const BlogService = [
     imgUrl:
       "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1234053501-e1678459251952.jpg?w=1390&crop=1",
     readTime: "13",
-    tags: ["chatgpt", "openai", "github", "copilot"],
+    tag: ["chatgpt", "openai", "github", "copilot"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -216,7 +216,7 @@ export const BlogService = [
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/4f51db880cd4d2d2391ede9e7f6f69ce?_a=AQADKdt",
     readTime: "6",
 
-    tags: ["web", "web3.0"],
+    tag: ["web", "web3.0"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -263,7 +263,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/d14089fcf09784fc737e695c785c6b89?_a=AQADKdt",
     readTime: "20",
-    tags: ["github", "git"],
+    tag: ["github", "git"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -293,7 +293,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/1db91146d34231be2a4c41fd75e322ad",
     readTime: "10",
-    tags: ["database"],
+    tag: ["database"],
     upVote: 0,
     bookMark: false,
     comments: [],
@@ -316,7 +316,7 @@ export const BlogService = [
     imgUrl:
       "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/ea89f0edce74f5723a77c363adcc0cee",
     readTime: "13",
-    tags: ["developer", "software", "enginerring", "programming"],
+    tag: ["developer", "software", "enginerring", "programming"],
     upVote: 0,
     bookMark: false,
     comments: [],
