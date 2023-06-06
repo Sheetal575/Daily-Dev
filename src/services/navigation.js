@@ -28,7 +28,7 @@ export const NavigationService = [
   {
     id: 1,
     title: "Most Upvoted",
-    url: "",
+    url: "/most-upvoted",
     icon: <UpVote fill="none" color="#ffff" size={18} strokeWidth={1.7} />,
   },
   {

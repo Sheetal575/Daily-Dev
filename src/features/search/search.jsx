@@ -1,20 +1,35 @@
 "use client";
 
-import BlogDataContext from "../../services/blogContext";
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import BlogsCard from "../blogs/blogs-cards";
 import styles from "../blogs/blogs.module.scss";
+import { get } from "../../services/requests";
 
 export const Search = () => {
-  const { blogData } = useContext(BlogDataContext);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [blogData, setBlogData] = useState([]);
+
+  const getAllBlogData = () => {
+    get("blogs")
+      .then((res) => {
+        setBlogData(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getAllBlogData();
+  }, []);
 
   function handleSearch(event) {
     setSearchQuery(event.target.value);
   }
 
   const filteredBlogs = blogData.filter((blog) =>
-    blog.tag.some((tag) =>
+    blog.tags.some((tag) =>
       tag.toLowerCase().includes(searchQuery.toLowerCase())
     )
   );
@@ -36,11 +51,7 @@ export const Search = () => {
       </div>
       <div className={styles["blogs-container"]}>
         {filteredBlogs &&
-          filteredBlogs.map((el, index) => (
-            <div ref={null}>
-              <BlogsCard blogdata={el} />
-            </div>
-          ))}
+          filteredBlogs.map((el, index) => <BlogsCard blogdata={el} />)}
       </div>
     </>
   );

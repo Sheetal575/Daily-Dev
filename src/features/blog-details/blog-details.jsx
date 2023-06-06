@@ -4,23 +4,21 @@ import ChooseTagPrompt from "../choose-tag-modal/choose-tag-prompt";
 import Button from "../../components/button/button";
 import ExternalLink from "../../icons/external-link";
 import Copy from "../../icons/copy";
-import { UpVote } from "../../icons/upvote";
-import { BookMark } from "../../icons/bookmark";
-import { Comment } from "../../icons/hide";
 import { useState } from "react";
 import { CommentScreen } from "../comments/comments";
+import { capitalizeName, handleCopy } from "../../utilites/helper";
+import { post, put } from "../../services/requests";
+import { BlogTools } from "./blog-tools";
+import { useAuth0 } from "@auth0/auth0-react";
+import Snackbar from "@mui/material/Snackbar";
 
-const BlogOverview = ({ title, imgUrl, tags }) => {
+const BlogOverview = ({ title, imgUrl, tags, description }) => {
   return (
     <div className={styles.overview}>
       <div className={styles["overview__heading"]}>
         <b>{title}</b>
       </div>
-      <div className={styles["overview__description"]}>
-        TLDRVite 4.3 is out! The resolve logic got streamlined, improving hot
-        paths and implementing smarter caching for finding, TS config files, and
-        resolved URL in general.
-      </div>
+      <div className={styles["overview__description"]}>{description}</div>
       <div className={styles["overview__tags"]}>
         {tags.map((el) => (
           <div>#{el}</div>
@@ -47,77 +45,71 @@ const BlogActions = ({ url }) => {
 };
 
 const BlogShareOptions = ({ url }) => {
-  const [showFillColor, setFillColor] = useState(false);
-
+  const [toolTipText, setToolTipText] = useState("");
   const handleCopyUrl = () => {
-    setFillColor(!showFillColor);
+    handleCopy(url);
+    setToolTipText("Copied!");
+    setTimeout(() => {
+      setToolTipText("");
+    }, 1000);
   };
   return (
     <div className={styles["share-option"]}>
       <span> Would you recommed this post?</span>
       <div className={styles["share-option__copyfield"]}>
         <input value={url} disabled />
-        <Button variant="tertiary" onClick={() => handleCopyUrl()}>
-          <Copy
-            size={23}
-            color="#fff"
-            strokeWidth={2}
-            fill={showFillColor ? "#ffff" : "none"}
-          />
-        </Button>
+        <div
+          className={styles["copy-container"]}
+          style={{ position: "relative" }}
+        >
+          <Button variant="tertiary" onClick={() => handleCopyUrl()}>
+            <Copy size={23} color="#fff" strokeWidth={2} fill="none" />
+          </Button>
+          {toolTipText && <div className={styles.tooltip}>{toolTipText}</div>}
+        </div>
       </div>
     </div>
   );
 };
 
-const BlogTools = ({ handleCommentScreen }) => {
-  const [showFillColor, setShowFillColor] = useState({
-    upvote: false,
-    bookmark: false,
-  });
+const BlogComments = ({
+  blogId,
+  postComment,
+  user,
+  isAuthenticated,
+  loginWithPopUp,
+}) => {
+  const [commentValue, setCommentValue] = useState("");
 
-  const handleAction = (action) => {
-    setShowFillColor({ ...showFillColor, [action]: !showFillColor[action] });
+  const handleCommentValue = (val) => {
+    setCommentValue(val);
   };
-  return (
-    <div className={styles["blog-tools"]}>
-      <div>
-        <Button variant="tertiary" onClick={() => handleAction("upvote")}>
-          <UpVote
-            size={18}
-            color="#ffff"
-            strokeWidth={1.5}
-            fill={showFillColor.upvote ? "#ffff" : "none"}
-          />
-        </Button>
-        <span>{12}</span>
-      </div>
-      <div>
-        <Button variant="tertiary" onClick={() => handleAction("bookmark")}>
-          <BookMark
-            size={22}
-            color="#ffff"
-            strokeWidth={1.5}
-            fill={showFillColor.bookmark ? "#ffff" : "none"}
-          />
-        </Button>
-        <span>{12}</span>
-      </div>
-      <div>
-        <Button variant="tertiary" onClick={() => handleCommentScreen()}>
-          <Comment size={24} color="#ffff" />
-        </Button>
-        <span>{12}</span>
-      </div>
-    </div>
-  );
-};
 
-const BlogComments = () => {
+  const sumbit = async () => {
+    if (isAuthenticated) {
+      const data = {
+        blogId: blogId,
+        userName: capitalizeName(user?.name),
+        comment: commentValue,
+      };
+
+      await postComment(data);
+      setCommentValue("");
+    } else {
+      loginWithPopUp();
+    }
+  };
+
   return (
     <div className={styles.comments}>
-      <input placeholder="share your thoughts" />
-      <Button variant="primary">post</Button>
+      <input
+        placeholder="share your thoughts"
+        value={commentValue}
+        onChange={(e) => handleCommentValue(e.target.value)}
+      />
+      <Button isDisabled={!commentValue} variant="primary" onClick={sumbit}>
+        post
+      </Button>
     </div>
   );
 };
@@ -147,38 +139,114 @@ const BlogSimilar = () => {
 };
 
 const BlogDetails = (props) => {
-  const { details, isOpen, onClose } = props;
+  const { details, isOpen, onClose, getAllBlogData } = props;
   const [isOpenCommentScreen, setIsOpenCommentScreen] = useState(false);
+  const { isAuthenticated, loginWithPopup, user } = useAuth0();
+  const [message, setMessage] = useState("");
+  const [open, setOpen] = useState(false);
 
+  console.log(user);
   const handleCommentScreen = () => {
     setIsOpenCommentScreen(!isOpenCommentScreen);
   };
+  const [upVoted, setUpVoted] = useState(false);
+
+  const postComment = (commentData) => {
+    post("comments", commentData)
+      .then((res) => {
+        getAllBlogData();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleUpVote = (id) => {
+    const data = {
+      blogId: id,
+      email: user?.email,
+    };
+    post("upvote", data).then((res) => {
+      if (res.errorMessage) {
+        setOpen(true);
+        setMessage(res.errorMessage);
+      } else {
+        setUpVoted(true);
+        alert("upvoted");
+        setOpen(true);
+        setMessage("UpVoted SuccessFully");
+        getAllBlogData();
+      }
+    });
+
+    return upVoted;
+  };
+
+  const handleBookMark = (id) => {
+    const data = {
+      blogId: id,
+    };
+    put(`users/bookmark/${user.email}`, data).then((res) => {
+      if (res) {
+        setOpen(true);
+        setMessage(res);
+      }
+    });
+  };
+
+  console.log(open);
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <div className={styles["blog-details"]}>
-        <div className={styles["blog-details__overview"]}>
-          <ChooseTagPrompt />
-          <BlogOverview
-            title={details?.title}
-            imgUrl={details?.imgUrl}
-            tags={details?.tag}
-          />
-          <BlogComments />
+    <>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <Snackbar
+          open={open}
+          autoHideDuration="3000"
+          onClose={() => setOpen(false)}
+          message={message}
+          anchorOrigin={{ vertical: "bottom", horizontal: "bottom" }}
+        />
+        <div className={styles["blog-details"]}>
+          <div className={styles["blog-details__overview"]}>
+            <ChooseTagPrompt />
+            <BlogOverview
+              title={details?.title}
+              imgUrl={details?.imgUrl}
+              tags={details?.tags}
+              description={details?.description}
+            />
+            <BlogComments
+              isAuthenticated={isAuthenticated}
+              loginWithPopUp={loginWithPopup}
+              blogId={details._id}
+              postComment={postComment}
+              user={user}
+            />
+          </div>
+          <div className={styles["blog-details__actions"]}>
+            {isOpenCommentScreen ? (
+              <CommentScreen
+                handleCommentScreen={handleCommentScreen}
+                comments={details.comments}
+              />
+            ) : (
+              <>
+                <BlogActions url={details?.url} />
+                <BlogShareOptions url={details?.url} />
+                <BlogTools
+                  handleCommentScreen={handleCommentScreen}
+                  upvote={details.upVote}
+                  comments={details.comments}
+                  isAuthenticated={isAuthenticated}
+                  loginWithPopUp={loginWithPopup}
+                  blogId={details?._id}
+                  handleUpVote={handleUpVote}
+                  handleBookMark={handleBookMark}
+                />
+                <BlogSimilar />
+              </>
+            )}
+          </div>
         </div>
-        <div className={styles["blog-details__actions"]}>
-          {isOpenCommentScreen ? (
-            <CommentScreen handleCommentScreen={handleCommentScreen} />
-          ) : (
-            <>
-              <BlogActions url={details?.url} />
-              <BlogShareOptions url={details?.url} />
-              <BlogTools handleCommentScreen={handleCommentScreen} />
-              <BlogSimilar />
-            </>
-          )}
-        </div>
-      </div>
-    </Modal>
+      </Modal>
+    </>
   );
 };
 

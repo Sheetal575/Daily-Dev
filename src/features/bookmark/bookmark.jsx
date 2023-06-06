@@ -3,16 +3,39 @@ import { useState, useEffect } from "react";
 import styles from "../blogs/blogs.module.scss";
 import BlogsCard from "../blogs/blogs-cards";
 import { get } from "../../services/requests";
+import { useAuth0 } from "@auth0/auth0-react";
 import { CircularProgress } from "@mui/material";
 
-const Popular = () => {
+const BookMark = () => {
   const [blogData, setBlogData] = useState([]);
-  const [filterData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [dataFetched, setIsDataFetched] = useState(false);
+  const { user } = useAuth0();
+
   const getAllBlogData = () => {
     get("blogs")
       .then((res) => {
         setBlogData(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getBookMarkData = () => {
+    console.log(blogData, "blogData");
+    get("users")
+      .then((res) => {
+        const bookmarkedIds = res.filter((el) => el.email == user?.email);
+        // Filter the blogData array based on the bookmarkedIds
+        const filteredBlogData = blogData.filter((blog) =>
+          bookmarkedIds[0].bookMark.includes(blog._id)
+        );
+        // Use the filteredBlogData as the updated blogData state
+        if (filteredBlogData.length > 0) {
+          setIsDataFetched(true);
+        }
+        setFilteredData(filteredBlogData);
       })
       .catch((err) => {
         console.log(err);
@@ -24,12 +47,7 @@ const Popular = () => {
   }, []);
 
   useEffect(() => {
-    const filteredBlogs = blogData.filter((blog) => blog.upVote >= 2);
-
-    if (filteredBlogs.length > 0) {
-      setIsDataFetched(true);
-    }
-    setFilteredData(filteredBlogs);
+    getBookMarkData();
   }, [blogData]);
 
   if (!dataFetched) {
@@ -50,9 +68,9 @@ const Popular = () => {
 
   return (
     <>
-      {filterData.length ? (
+      {filteredData.length ? (
         <div className={styles["blogs-container"]}>
-          {filterData.map((el, index) => (
+          {filteredData.map((el, index) => (
             <BlogsCard blogdata={el} />
           ))}
         </div>
@@ -67,11 +85,11 @@ const Popular = () => {
             width: "100%",
           }}
         >
-          No Blog Found
+          No BookMarked Data Found
         </div>
       )}
     </>
   );
 };
 
-export default Popular;
+export default BookMark;

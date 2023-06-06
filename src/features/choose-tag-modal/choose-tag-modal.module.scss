@@ -1,5 +1,5 @@
 .choosetag-modal {
-  width: 475px;
+  width: 555px;
   &__heading {
     padding: 24px 12px;
     display: flex;
@@ -26,10 +26,13 @@
   &__content {
     padding: 30px 60px;
     color: #ffffff91;
+    height: 420px;
+    overflow-y: auto;
     display: grid;
+    justify-content: center;
     gap: 1.6rem;
     grid-template-columns: repeat(auto-fit, 80px);
-    gap: 10px;
+    gap: 16px;
   }
 
   &__footer {
@@ -64,6 +67,8 @@
   }
 
   &-active {
+    color: #21273d;
+    font-weight: 700;
     background: linear-gradient(to right, #9ecaed, #21273d);
     transition: all 0.2s ease-in;
     box-shadow: 0 0 10px #9ecaed;

@@ -26,15 +26,20 @@
 
   &__comment {
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    > div:nth-child(1) {
-      font-size: 12px;
-      color: #ffffff91;
-    }
-    > div:nth-child(2) {
-      font-size: 14px;
-      line-height: 20px;
-    }
+    flex-shrink: 0;
+    gap: 1rem;
+  }
+}
+
+.comments {
+  &__name {
+    font-size: 12px;
+    color: #ffffffb0;
+    line-height: 20px;
+  }
+
+  &__comment {
+    font-size: 14px;
+    line-height: 20px;
   }
 }

@@ -1,24 +1,28 @@
 import styles from "./comments.module.scss";
 import Button from "../../components/button/button";
-export const CommentScreen = ({ handleCommentScreen }) => {
+import { Avatar } from "../../components/avatar/avatar";
+export const CommentScreen = ({ handleCommentScreen, comments }) => {
   return (
     <div className={styles["comment-screen"]}>
       <div className={styles["comment-screen__heading"]}>
-        All Comments(10)
+        All Comments({comments?.length})
         <Button variant="tertiary" onClick={() => handleCommentScreen()}>
           Back
         </Button>
       </div>
       <div className={styles["comment-screen__content"]}>
-        {[...Array(20)].map((comment) => (
-          <div className={styles["comment-screen__comment"]}>
-            <div>Sheetal Dadhich</div>
-            <div>
-              Hey devs, ever wish there was a tab to help you stay ahead in the
-              ever-changing tech world
+        {comments &&
+          comments.map((el) => (
+            <div className={styles["comment-screen__comment"]}>
+              <div>
+                <Avatar name={el?.userName} size="small" />
+              </div>
+              <div className={styles.comments}>
+                <div className={styles.comments__name}>{el?.userName}</div>
+                <div className={styles.comments__comment}>{el?.comment}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

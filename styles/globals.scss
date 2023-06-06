@@ -60,6 +60,27 @@ input {
   }
 }
 
+textarea {
+  background-color: #97d2ec1d;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  caret-color: #97d2ec;
+  color: white;
+  width: 100%;
+
+  &:focus {
+    outline: 0.1em solid #97d2ec;
+    box-shadow: 0 0 10px #9ecaed;
+    transition: all 0.2s ease-out;
+  }
+
+  &::placeholder {
+    color: #ffffff91;
+  }
+}
+
 .introjs-tooltip .introjs-tooltiptitle {
   color: black !important;
 }
@@ -87,5 +108,11 @@ input {
 .introjs-tooltiptext {
   font-size: 23px !important;
   line-height: 30px !important;
+  font-weight: 600 !important;
+}
+
+.MuiPaper-root {
+  background-color: #fff !important;
+  color: #21273d !important;
   font-weight: 600 !important;
 }

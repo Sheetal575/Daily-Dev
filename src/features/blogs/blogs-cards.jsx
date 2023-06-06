@@ -6,17 +6,16 @@ import { useState } from "react";
 import BlogDetails from "../blog-details/blog-details";
 
 const BlogsCard = (props) => {
-  const { blogdata } = props;
+  const { blogdata, getAllBlogData } = props;
   const { title, imgUrl, url, readTime } = blogdata;
-  const [selectedBlog, setSelectedBlog] = useState([]);
   const [isOpenDetailModal, setIsOpenDetailModal] = useState(false);
 
-  const readblog = (goToUrl) => {
+  const readblog = (goToUrl, e) => {
+    e.stopPropagation();
     window.open(goToUrl);
   };
 
   const handleSelectedBlog = () => {
-    setSelectedBlog(blogdata);
     setIsOpenDetailModal(!isOpenDetailModal);
   };
   return (
@@ -36,13 +35,14 @@ const BlogsCard = (props) => {
             <ReadTime size={14} color="#97d2ec" strokeWidth={2} />
             {readTime} min
           </span>
-          <Button variant="primary" onClick={() => readblog(url)}>
+          <Button variant="primary" onClick={(e) => readblog(url, e)}>
             <ExternalLink size={15} color="black" strokeWidth={2} />
           </Button>
         </div>
       </div>
       <BlogDetails
-        details={selectedBlog}
+        getAllBlogData={getAllBlogData}
+        details={blogdata}
         isOpen={isOpenDetailModal}
         onClose={() => setIsOpenDetailModal(!isOpenDetailModal)}
       />

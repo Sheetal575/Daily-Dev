@@ -19,7 +19,7 @@ export const InvitePeople = ({ isOpen, onClose }) => {
         <div className={styles["invite-modal__input"]}>
           <input value="https://daily.dev/" disabled />
           <Button variant="tertiary">
-            <Copy size={23} color="#fff" strokeWidth={2} />
+            <Copy size={23} color="#fff" strokeWidth={2} fill="none" />
           </Button>
         </div>
       </div>

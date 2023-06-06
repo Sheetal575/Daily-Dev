@@ -5,8 +5,9 @@
   color: #fff;
   display: flex;
   height: 50px;
-  padding: 12px;
+  padding: 1.6rem 1.5rem;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -26,5 +27,114 @@
     color: #fff;
     letter-spacing: 2px;
     transition: all 3s ease-in;
+  }
+}
+
+.profile {
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  padding: 4px 8px;
+
+  &__dropdown {
+    position: absolute;
+    top: 50px;
+    right: 4px;
+    min-width: 179px;
+    background-color: #21273d;
+    border: 1.3px solid #97d2ec36;
+    border-radius: 17px;
+    padding: 8px;
+    z-index: 9;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.05), 0px 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  &__dropdown-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+  }
+
+  &__dropdown-menu {
+    outline: 0;
+    border: 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: transparent;
+    color: #ffff;
+    background-color: #97d2ec1d;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    &:hover {
+      background-color: #97d2ec37 !important;
+    }
+    &-active {
+      background-color: #97d2ec1d !important;
+    }
+  }
+}
+.pointer {
+  border: 13px solid blue;
+  border-top: 0;
+  border-bottom: 13px solid red;
+  float: right;
+  margin-top: -19px;
+}
+.border {
+  height: 1px;
+  background-color: #dde2ed;
+  border: none;
+  margin: 0;
+}
+.clevron-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &-rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+
+  &__name,
+  &__label,
+  &__value {
+    color: #ffffffc8;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__emailId {
+    color: #ffffffc8;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  &__value {
+    font-weight: 700;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 4px 8px;
+    gap: 5px;
   }
 }

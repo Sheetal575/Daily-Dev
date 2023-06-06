@@ -1,10 +1,7 @@
+import BookMark from "../../features/bookmark/bookmark";
 import styles from "./page.module.scss";
 const Page = () => {
-  return (
-    <div className={styles.typewriter}>
-      <h2>Hold tight, we're working on it.</h2>
-    </div>
-  );
+  return <BookMark />;
 };
 
 export default Page;

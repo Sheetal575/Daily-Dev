@@ -57,9 +57,9 @@
 }
 .blogs-container {
   display: grid;
-  padding: 2rem 8rem;
+  // padding: 2rem 8rem;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .introjs-tooltip {

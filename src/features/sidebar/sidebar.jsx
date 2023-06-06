@@ -88,7 +88,7 @@ const SidebarFooter = ({ handleSideBarCollapsed, isCollapsed }) => (
       isCollapsed ? styles["sidebar__footer-collapsed"] : ""
     }`}
   >
-    <button
+    {/* <button
       className={styles.sidebar__footer__button}
       onClick={handleSideBarCollapsed}
     >
@@ -99,7 +99,7 @@ const SidebarFooter = ({ handleSideBarCollapsed, isCollapsed }) => (
       >
         <ChevronDoubleLeft size={20} strokeWidth={2} color="white" />
       </div>
-    </button>
+    </button> */}
   </div>
 );
 const Sidebar = () => {

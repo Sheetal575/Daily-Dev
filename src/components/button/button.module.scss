@@ -3,23 +3,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5em 0.7em;
+  padding: 0.5em 0.8em;
   border-radius: 0.4em;
   cursor: pointer;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 .primary {
   background-color: #ffffff;
   &:hover {
-    background: #97d2ec radial-gradient(circle, transparent 1%, #97d2ec 1%)
-      center/15000%;
-  }
-  &:active {
-    background-color: #fff;
-    background-size: 100%;
-    transition: background 0s;
+    background-color: #97d2ec36;
+    color: #ffff;
+    outline: 1px solid #ffff;
   }
 }
 

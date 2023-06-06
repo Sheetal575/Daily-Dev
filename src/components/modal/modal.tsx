@@ -4,7 +4,7 @@ import styles from "./modal.module.scss";
 import Close from "../../icons/close";
 import Button from "../button/button";
 
-export const Modal = (props) => {
+export const Modal = (props: { isOpen: any; onClose: any; children: any }) => {
   const { isOpen, onClose, children } = props;
   if (!isOpen) {
     return null;

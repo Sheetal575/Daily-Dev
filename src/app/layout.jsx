@@ -1,9 +1,11 @@
+"use client";
+
 import "../../styles/globals.scss";
 import Header from "../features/header/header";
 import Sidebar from "../features/sidebar/sidebar";
-import BlogDataProvider from "../services/blogProvider";
 import styles from "./layout.module.scss";
-
+import { Auth0Provider } from "@auth0/auth0-react";
+import { SnackbarProvider } from "react-snackbar-notif";
 // const container = document.querySelector('.container');
 // const styles = getComputedStyle(container);
 // const gridColumnTemplate = styles.getPropertyValue('grid-template-columns');
@@ -21,15 +23,21 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <BlogDataProvider>
-          <div className={styles.container}>
+        <div className={styles.container}>
+          <Auth0Provider
+            domain="daily-dev.us.auth0.com"
+            clientId="TLdMtBVExuIIryiBA3wbQ8ByGF5VnSih"
+            authorizationParams={{
+              redirect_uri: window.location.origin,
+            }}
+          >
             <Header />
             <aside>
               <Sidebar />
             </aside>
             <main className={styles.content}>{children}</main>
-          </div>
-        </BlogDataProvider>
+          </Auth0Provider>
+        </div>
       </body>
     </html>
   );
